@@ -1,6 +1,8 @@
 create database xyz;
 use xyz;
 
+set sql_safe_updates=0;
+
 use college;
 
 create table employees(
@@ -47,3 +49,16 @@ select mode,count(mode) from payment group by mode;
 
 -- find total payment according to each payment method made by each customer
 select mode,count(customer) from payment group by mode;
+
+-- practice on Alter & Delete ( from table student)
+
+-- Change the name of column "name" to "full_name"
+alter table student change column name full_name varchar(30);
+
+-- Delete all student who have scored less than 80 marks
+delete from student where marks < 80;
+
+-- Delete the column for grades
+alter table student drop column grade;
+
+select * from student;

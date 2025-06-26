@@ -102,6 +102,7 @@ select city from student
  order by city desc;
 
 
+
 -- table 2 (unique)
 create table temp1(id int unique); -- unique - only unique value allow no duplicate
 insert into temp1 values(101);
@@ -109,14 +110,6 @@ insert into temp1 values(101);
 
 select * from temp1;
 
--- primary key
-create table temp1(
-id int,
-name varchar(20),
-age int,
-city varchar(20),
-primary key (id,name) -- another syntax to declare primary key and two coloumns can be PK and combination of both(like id & name) will be unique. 
-);
 
 -- default constraint
 create table emp(
@@ -130,4 +123,14 @@ insert into emp (id) values (102);
 select * from emp;
 
 
+-- CREATE VIEW (it can create a virtual table and we can perform diff. query also in this virtual table)
+create view VIEW1 as select rollno,full_name,marks from student;
+
+select * from VIEW1;
+
+select * from VIEW1 where marks > 90;
+
+set sql_safe_updates=0;
+
+delete from  VIEW1;
 
