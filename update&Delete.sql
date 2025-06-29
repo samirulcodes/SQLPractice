@@ -33,3 +33,8 @@ select * from student;
 
 -- DROP TABLE 
 -- drop table student;  -- it delete entire data of table with table structure
+
+
+-- Concatenate two columns
+-- select  concat(first_name,' ',last_name) as full_Name from patients; 
+-- SELECT first_name, last_name, first_name || ' ' || last_name AS full_name FROM your_table;
