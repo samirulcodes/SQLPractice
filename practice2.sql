@@ -1,3 +1,4 @@
+
 create database if not exists Practice;
 use Practice;
 
@@ -48,4 +49,5 @@ select * from Employees order by salary desc limit 1 offset 1; -- offset 1 - ski
 
 -- Another methods 3rd highest salary
 select * from Employees order by salary desc limit 1 offset 2; 
+
 
