@@ -93,30 +93,6 @@ select  customer_id,order_id, amount ,
 sum(amount) over (partition by customer_id order by order_date ) as cumulative_spending
 from Orders;
  
--- Top 3 customers by total spending.
-select customer_id,sum(amount)as total_spent from Orders 
-group by customer_id
-order by total_spent desc limit 3;
-
--- Find the average order amount per customer.
-select customer_id,avg(amount) as Average from Orders 
-group by customer_id;
-
--- Find duplicate emails in the Customers table.
-select email,count(*) as duplicate
-from Customers2 group by email
-having count(*) > 1;
-
--- Find customers who placed more than 3 orders.
-select customer_id,count(*) as Order_placed 
-from Orders group by customer_id
-having count(*) > 3;
-
--- Rank customers by total spending using RANK().
-SELECT customer_id, SUM(amount) AS total_spent,
-       RANK() OVER (ORDER BY SUM(amount) DESC) AS spending_rank
-FROM Orders
-GROUP BY customer_id;
 
 
 
